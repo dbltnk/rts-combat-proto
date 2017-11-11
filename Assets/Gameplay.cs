@@ -6,9 +6,10 @@ public class Gameplay : MonoBehaviour {
 
     public bool HasStarted = false;
     public GameObject ChampionPrefab;
+    public GameObject ChampionPreviewObject;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -31,6 +32,7 @@ public class Gameplay : MonoBehaviour {
                 {
                     worldPos = Camera.main.ScreenToWorldPoint(mousePos);
                 }
+                GameObject.DestroyImmediate(ChampionPreviewObject);
                 Instantiate(ChampionPrefab, worldPos, Quaternion.identity);
                 HasStarted = true;
             }
