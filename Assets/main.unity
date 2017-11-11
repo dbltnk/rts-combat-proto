@@ -199,6 +199,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
+--- !u!1001 &202773701
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 12.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984015908796774, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e35bc958406809d468223468729f5962, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &797759595
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +390,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 0}
+--- !u!1 &1451093088 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1092903895365536, guid: e35bc958406809d468223468729f5962,
+    type: 2}
+  m_PrefabInternal: {fileID: 202773701}
 --- !u!1 &1667568118
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +495,9 @@ MonoBehaviour:
   U3pref: {fileID: 1227124870472732, guid: f94a65fe2e9cb4748a05a9cf73311a94, type: 2}
   ChampionPreviewObject: {fileID: 1091009112}
   UnitSelected: 0
+  SpawnDistance: 15
+  Champion: {fileID: 0}
+  up: {fileID: 1451093088}
 --- !u!4 &1985802522
 Transform:
   m_ObjectHideFlags: 0
