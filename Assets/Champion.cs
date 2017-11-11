@@ -50,6 +50,8 @@ private void Move()
             {
                 TargetPos = Camera.main.ScreenToWorldPoint(mousePos);
             }
+           // gp.UnitSelected = 0;
+           // gp.up.SetActive(false);
         }
 
         float step = speed * Time.deltaTime;
