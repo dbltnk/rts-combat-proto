@@ -443,7 +443,11 @@ MonoBehaviour:
   HasStarted: 0
   ChampionPrefab: {fileID: 1143593863281830, guid: f9c4d3013717d4947ba28fa539645fd2,
     type: 2}
+  U1pref: {fileID: 1480053003392298, guid: 211f7c813f54ef043bd4c3eee63df9dd, type: 2}
+  U2pref: {fileID: 1872521451435454, guid: 2ad7084f40bbc8b4aba239ad95dc2209, type: 2}
+  U3pref: {fileID: 1227124870472732, guid: f94a65fe2e9cb4748a05a9cf73311a94, type: 2}
   ChampionPreviewObject: {fileID: 1091009112}
+  UnitSelected: 0
 --- !u!4 &1985802522
 Transform:
   m_ObjectHideFlags: 0
