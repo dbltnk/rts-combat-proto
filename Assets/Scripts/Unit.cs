@@ -5,14 +5,12 @@ using UnityEngine;
 public class Unit : MonoBehaviour {
 
     private GameObject PFX;
-    private GameObject Target;
     public float Speed = 7f;
     private bool isDoneSpawning = false;
 
     void Start ()
     {
         PFX = this.gameObject.transform.GetChild(1).gameObject;
-        Target = GameObject.Find("Target");
         StartCoroutine(StopPFX());
     }
 
@@ -31,6 +29,26 @@ public class Unit : MonoBehaviour {
     private void Move()
     {
         float step = Speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, FindClosestEnemy().transform.position, step);
+    }
+
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
     }
 }
