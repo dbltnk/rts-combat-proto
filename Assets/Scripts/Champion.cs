@@ -36,22 +36,9 @@ private void DoCircle()
     
 private void Move()
     {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000f))
-            {
-                TargetPos = hit.point;
-            }
-            else
-            {
-                TargetPos = Camera.main.ScreenToWorldPoint(mousePos);
-            }
-           // gp.UnitSelected = 0;
-           // gp.up.SetActive(false);
+            TargetPos = gp.MousePosToWorldPos();
         }
 
         float step = speed * Time.deltaTime;

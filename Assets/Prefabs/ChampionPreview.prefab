@@ -122,6 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7000e821b98714d429170a981f5e239f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  TargetPos: {x: 0, y: 0, z: 0}
+  gp: {fileID: 0}
+  Circle: {fileID: 0}
 --- !u!136 &136037326303326452
 CapsuleCollider:
   m_ObjectHideFlags: 1

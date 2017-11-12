@@ -238,6 +238,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1423303534295764, guid: e35bc958406809d468223468729f5962, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e35bc958406809d468223468729f5962, type: 2}
   m_IsPrefabParent: 0
@@ -253,7 +257,7 @@ GameObject:
   - component: {fileID: 797759597}
   - component: {fileID: 797759596}
   m_Layer: 8
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,6 +373,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: aeb8ad09830237342b3ddfa08187c1d3, type: 2}
+    - target: {fileID: 1526697403738120, guid: f30983513100e40439f98623b1f23fd5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114740864478477136, guid: f30983513100e40439f98623b1f23fd5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f30983513100e40439f98623b1f23fd5, type: 2}
@@ -386,10 +394,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091009112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 439f5e05aac1d66428b843f22b23a6fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 067796e3fde7b40409b75546a6247381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Capsule: {fileID: 0}
 --- !u!1 &1451093088 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1092903895365536, guid: e35bc958406809d468223468729f5962,
@@ -470,7 +477,7 @@ GameObject:
   - component: {fileID: 1985802522}
   - component: {fileID: 1985802521}
   m_Layer: 0
-  m_Name: Root
+  m_Name: GameplayRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,17 +494,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fc663afc227284ab95fe50cbf197a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasStarted: 0
+  UnitSelected: 0
+  SpawnDistance: 15
+  ChampionWasSpawned: 0
   ChampionPrefab: {fileID: 1143593863281830, guid: f9c4d3013717d4947ba28fa539645fd2,
     type: 2}
   U1pref: {fileID: 1480053003392298, guid: 211f7c813f54ef043bd4c3eee63df9dd, type: 2}
   U2pref: {fileID: 1872521451435454, guid: 2ad7084f40bbc8b4aba239ad95dc2209, type: 2}
   U3pref: {fileID: 1227124870472732, guid: f94a65fe2e9cb4748a05a9cf73311a94, type: 2}
   ChampionPreviewObject: {fileID: 1091009112}
-  UnitSelected: 0
-  SpawnDistance: 15
   Champion: {fileID: 0}
-  up: {fileID: 1451093088}
+  UnitPreviewCapsule: {fileID: 1451093088}
 --- !u!4 &1985802522
 Transform:
   m_ObjectHideFlags: 0

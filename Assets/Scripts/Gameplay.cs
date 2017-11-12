@@ -4,36 +4,25 @@ using UnityEngine;
 
 public class Gameplay : MonoBehaviour {
 
-    public bool HasStarted = false;
+    public int UnitSelected = 0;
+    public float SpawnDistance = 15f;
+    public bool ChampionWasSpawned = false;
     public GameObject ChampionPrefab;
     public GameObject U1pref;
     public GameObject U2pref;
     public GameObject U3pref;
     public GameObject ChampionPreviewObject;
-    public int UnitSelected = 0;
-    public float SpawnDistance = 15f;
+    public GameObject UnitPreviewCapsule;
     public GameObject Champion;
-    public GameObject up;
 
     // Use this for initialization
     void Start () {
-        up.SetActive(false);
+        UnitPreviewCapsule.SetActive(false);
     }
 
     void SpawnUnit(int unitID)
     {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-        Vector3 worldPos;
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000f))
-        {
-            worldPos = hit.point;
-        }
-        else
-        {
-            worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        }
+        Vector3 worldPos = MousePosToWorldPos();
 
         if(Vector3.Distance(worldPos, Champion.transform.position) <= SpawnDistance)
         {
@@ -42,17 +31,17 @@ public class Gameplay : MonoBehaviour {
                 case 1:
                     Instantiate(U1pref, worldPos, Quaternion.identity);
                     UnitSelected = 0;
-                    up.SetActive(false);
+                    UnitPreviewCapsule.SetActive(false);
                     break;
                 case 2:
                     Instantiate(U2pref, worldPos, Quaternion.identity);
                     UnitSelected = 0;
-                    up.SetActive(false);
+                    UnitPreviewCapsule.SetActive(false);
                     break;
                 case 3:
                     Instantiate(U3pref, worldPos, Quaternion.identity);
                     UnitSelected = 0;
-                    up.SetActive(false);
+                    UnitPreviewCapsule.SetActive(false);
                     break;
                 default:
                     break;
@@ -64,26 +53,13 @@ public class Gameplay : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-
         if (Input.GetMouseButtonDown(0)) {
 
-            if (!HasStarted)
+            if (!ChampionWasSpawned)
             {
-                Vector3 worldPos;
-                Ray ray = Camera.main.ScreenPointToRay(mousePos);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 1000f))
-                {
-                    worldPos = hit.point;
-                }
-                else
-                {
-                    worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-                }
                 GameObject.DestroyImmediate(ChampionPreviewObject);
-                Champion = Instantiate(ChampionPrefab, worldPos, Quaternion.identity);
-                HasStarted = true;
+                Champion = Instantiate(ChampionPrefab, MousePosToWorldPos(), Quaternion.identity);
+                ChampionWasSpawned = true;
             }
             else
             {
@@ -96,11 +72,11 @@ public class Gameplay : MonoBehaviour {
             if (UnitSelected == 1)
             {
                 UnitSelected = 0;
-                up.SetActive(false);
+                UnitPreviewCapsule.SetActive(false);
             }
             else {
                 UnitSelected = 1;
-                up.SetActive(true);
+                UnitPreviewCapsule.SetActive(true);
             }     
         }
         else if (Input.GetKeyDown("2"))
@@ -108,12 +84,12 @@ public class Gameplay : MonoBehaviour {
             if (UnitSelected == 2)
             {
                 UnitSelected = 0;
-                up.SetActive(false);
+                UnitPreviewCapsule.SetActive(false);
             }
             else
             {
                 UnitSelected = 2;
-                up.SetActive(true);
+                UnitPreviewCapsule.SetActive(true);
             }
         }
         else if (Input.GetKeyDown("3"))
@@ -121,33 +97,53 @@ public class Gameplay : MonoBehaviour {
             if (UnitSelected == 3)
             {
                 UnitSelected = 0;
-                up.SetActive(false);
+                UnitPreviewCapsule.SetActive(false);
             }
             else
             {
                 UnitSelected = 3;
-                up.SetActive(true);
+                UnitPreviewCapsule.SetActive(true);
             }
         }
 
-        Vector3 thisPos;
-        Ray thisray = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit thishit;
-        if (Physics.Raycast(thisray, out thishit, 1000f))
+        if (Vector3.Distance(MousePosToWorldPos(), Champion.transform.position) <= SpawnDistance)
         {
-            thisPos = thishit.point;
+            switch (UnitSelected)
+            {
+                case 1:
+                    UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+                    break;
+                case 2:
+                    UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                    break;
+                case 3:
+                    UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    break;
+                default:
+                    break;
+            }            
         }
         else
         {
-            thisPos = Camera.main.ScreenToWorldPoint(mousePos);
+            UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
         }
-        if (Vector3.Distance(thisPos, Champion.transform.position) <= SpawnDistance)
+    }
+
+    public Vector3 MousePosToWorldPos()
+    {
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
+        Vector3 worldPos;
+        LayerMask mask = 1 << 8;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1000f, mask))
         {
-            up.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            worldPos = hit.point;
         }
         else
         {
-            up.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+            worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         }
+        return worldPos;
     }
 }
