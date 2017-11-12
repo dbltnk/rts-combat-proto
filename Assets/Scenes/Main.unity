@@ -848,7 +848,6 @@ GameObject:
   - component: {fileID: 477943812}
   - component: {fileID: 477943811}
   - component: {fileID: 477943810}
-  - component: {fileID: 477943809}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -856,45 +855,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &477943809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 477943808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da40b96ac653a944291a7d1587fb56dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crystalsText: {fileID: 1266611316}
-  crystalsCapText: {fileID: 197092366}
-  supplyText: {fileID: 1312436957}
-  popCostsText: {fileID: 1371600545}
-  crystalsRaw: 0
-  crystalsCapRaw: 1
-  crystalsCap: 0
-  timePerCrystal: 10
-  timePerCrystalCapIncrease: 30
-  crystalsCapMax: 15
-  supply: 0
-  supplySoftCap: 100
-  speedFactor: 30
-  regenerationModifier: 0
-  crystalsPerMinuteBase: 0
-  crystalsPerMinute: 0
-  Cards:
-  - {fileID: 1039002717}
-  - {fileID: 1558650433}
-  - {fileID: 741581002}
-  - {fileID: 1960310337}
-  - {fileID: 939167406}
-  - {fileID: 2004483658}
-  - {fileID: 754084776}
-  - {fileID: 1265485360}
-  - {fileID: 1498731080}
-  randomKillDelay: 1
-  chanceToDie: 75
 --- !u!114 &477943810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,7 +1139,7 @@ MonoBehaviour:
   costText: {fileID: 1639614738}
   useText: {fileID: 329101540}
   timerText: {fileID: 1448838234}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &741581005
 MonoBehaviour:
@@ -1325,7 +1285,7 @@ MonoBehaviour:
   costText: {fileID: 160133361}
   useText: {fileID: 426508456}
   timerText: {fileID: 1152476534}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &754084779
 MonoBehaviour:
@@ -1829,7 +1789,7 @@ MonoBehaviour:
   costText: {fileID: 256490149}
   useText: {fileID: 213716901}
   timerText: {fileID: 763937325}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &939167409
 MonoBehaviour:
@@ -2286,7 +2246,7 @@ MonoBehaviour:
   costText: {fileID: 653567837}
   useText: {fileID: 2013413398}
   timerText: {fileID: 1412929506}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!1 &1075444048
 GameObject:
@@ -2829,7 +2789,7 @@ MonoBehaviour:
   costText: {fileID: 886346866}
   useText: {fileID: 338240811}
   timerText: {fileID: 1075444050}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &1265485363
 MonoBehaviour:
@@ -3424,7 +3384,7 @@ MonoBehaviour:
   costText: {fileID: 1194126884}
   useText: {fileID: 1206022364}
   timerText: {fileID: 804705368}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &1498731083
 MonoBehaviour:
@@ -3644,7 +3604,7 @@ MonoBehaviour:
   costText: {fileID: 1835255513}
   useText: {fileID: 1478768332}
   timerText: {fileID: 650156114}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &1558650436
 MonoBehaviour:
@@ -4387,7 +4347,7 @@ MonoBehaviour:
   costText: {fileID: 1745107016}
   useText: {fileID: 1503487451}
   timerText: {fileID: 1914961570}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &1960310340
 MonoBehaviour:
@@ -4483,6 +4443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1985802522}
   - component: {fileID: 1985802521}
+  - component: {fileID: 1985802523}
   m_Layer: 0
   m_Name: GameplayRoot
   m_TagString: Untagged
@@ -4525,6 +4486,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1985802523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1985802520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da40b96ac653a944291a7d1587fb56dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalsText: {fileID: 1266611316}
+  crystalsCapText: {fileID: 197092366}
+  supplyText: {fileID: 1312436957}
+  popCostsText: {fileID: 1371600545}
+  crystalsRaw: 0
+  crystalsCapRaw: 1
+  crystalsCap: 0
+  timePerCrystal: 10
+  timePerCrystalCapIncrease: 30
+  crystalsCapMax: 15
+  supply: 0
+  supplySoftCap: 100
+  speedFactor: 1
+  regenerationModifier: 0
+  crystalsPerMinuteBase: 0
+  crystalsPerMinute: 0
+  Cards:
+  - {fileID: 1039002717}
+  - {fileID: 1558650433}
+  - {fileID: 741581002}
+  - {fileID: 1960310337}
+  - {fileID: 939167406}
+  - {fileID: 2004483658}
+  - {fileID: 754084776}
+  - {fileID: 1265485360}
+  - {fileID: 1498731080}
+  randomKillDelay: 1
+  chanceToDie: 0
 --- !u!1 &2004483658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4584,7 +4584,7 @@ MonoBehaviour:
   costText: {fileID: 1214870470}
   useText: {fileID: 439841895}
   timerText: {fileID: 1671901577}
-  gameplayRoot: {fileID: 477943808}
+  gameplayRoot: {fileID: 1985802520}
   button: {fileID: 0}
 --- !u!114 &2004483661
 MonoBehaviour:
