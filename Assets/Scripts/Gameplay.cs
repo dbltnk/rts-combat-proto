@@ -46,9 +46,7 @@ public class Gameplay : MonoBehaviour {
                 default:
                     break;
             }
-        }
-
-        
+        }       
     }
 
     // Update is called once per frame
@@ -67,65 +65,69 @@ public class Gameplay : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown("1"))
+        if (ChampionWasSpawned)
         {
-            if (UnitSelected == 1)
+            if (Input.GetKeyDown("1"))
             {
-                UnitSelected = 0;
-                UnitPreviewCapsule.SetActive(false);
+                if (UnitSelected == 1)
+                {
+                    UnitSelected = 0;
+                    UnitPreviewCapsule.SetActive(false);
+                }
+                else
+                {
+                    UnitSelected = 1;
+                    UnitPreviewCapsule.SetActive(true);
+                }
             }
-            else {
-                UnitSelected = 1;
-                UnitPreviewCapsule.SetActive(true);
-            }     
-        }
-        else if (Input.GetKeyDown("2"))
-        {
-            if (UnitSelected == 2)
+            else if (Input.GetKeyDown("2"))
             {
-                UnitSelected = 0;
-                UnitPreviewCapsule.SetActive(false);
+                if (UnitSelected == 2)
+                {
+                    UnitSelected = 0;
+                    UnitPreviewCapsule.SetActive(false);
+                }
+                else
+                {
+                    UnitSelected = 2;
+                    UnitPreviewCapsule.SetActive(true);
+                }
             }
-            else
+            else if (Input.GetKeyDown("3"))
             {
-                UnitSelected = 2;
-                UnitPreviewCapsule.SetActive(true);
+                if (UnitSelected == 3)
+                {
+                    UnitSelected = 0;
+                    UnitPreviewCapsule.SetActive(false);
+                }
+                else
+                {
+                    UnitSelected = 3;
+                    UnitPreviewCapsule.SetActive(true);
+                }
             }
-        }
-        else if (Input.GetKeyDown("3"))
-        {
-            if (UnitSelected == 3)
-            {
-                UnitSelected = 0;
-                UnitPreviewCapsule.SetActive(false);
-            }
-            else
-            {
-                UnitSelected = 3;
-                UnitPreviewCapsule.SetActive(true);
-            }
-        }
 
-        if (Vector3.Distance(MousePosToWorldPos(), Champion.transform.position) <= SpawnDistance)
-        {
-            switch (UnitSelected)
+            if (Vector3.Distance(MousePosToWorldPos(), Champion.transform.position) <= SpawnDistance)
             {
-                case 1:
-                    UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
-                    break;
-                case 2:
-                    UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-                    break;
-                case 3:
-                    UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-                    break;
-                default:
-                    break;
-            }            
-        }
-        else
-        {
-            UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+                switch (UnitSelected)
+                {
+                    case 1:
+                        UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+                        break;
+                    case 2:
+                        UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                        break;
+                    case 3:
+                        UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                UnitPreviewCapsule.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+            }
         }
     }
 
