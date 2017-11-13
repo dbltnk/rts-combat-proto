@@ -10,8 +10,9 @@ public class InputManager : MonoBehaviour {
 		Instance = this;
 	}
 
+	private string[] spawnSlotKeys = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
-	public Gameplay ControlledGameplay;
+	public GameplayWorld ControlledGameplay;
 
 
 	void FixedUpdate() {
@@ -32,6 +33,12 @@ public class InputManager : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0)) {
 			ControlledGameplay.SpawnUnit(MousePosToWorldPos());
+		}
+
+		for(int slot = 0; slot < spawnSlotKeys.Length; ++slot) {
+			if (Input.GetKeyDown(spawnSlotKeys[slot])) {
+				ControlledGameplay.TriggerSlot(slot);
+			}			
 		}
 	}
 

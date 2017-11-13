@@ -5,7 +5,7 @@ using UnityEngine;
 public class Setup : MonoBehaviour {
 
 	void Start () {
-		var gp = GameObject.FindObjectOfType<Gameplay>();
+		var gp = GameObject.FindObjectOfType<GameplayWorld>();
 		InputManager.Instance.ControlledGameplay = gp;
 	}
 }

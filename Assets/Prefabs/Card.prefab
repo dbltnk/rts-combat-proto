@@ -264,27 +264,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c59fde2010a31428defa265f627369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Color: {r: 0, g: 0, b: 0, a: 0}
-  Price: 0
-  UseMax: 0
+  Prefabs: {fileID: 114472834148059550, guid: ef0c2279afc0d4dd2b6cd0623f588eef, type: 2}
   UseCurrent: 0
-  Amount: 0
-  TimeoutMax: 0
   TimeoutCurrent: 0
-  Size: 0
-  RunSpeed: 0
-  Range: 0
-  HealthMax: 0
   HealthCurrent: 0
-  AttackSpeed: 0
-  Damage: 0
-  MaxTargets: 0
+  Conf:
+    Name: 
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Price: 0
+    UseMax: 0
+    Amount: 0
+    TimeoutMax: 0
+    Size: 0
+    RunSpeed: 0
+    Range: 0
+    HealthMax: 0
+    AttackSpeed: 0
+    Damage: 0
+    MaxTargets: 0
+    UnitPrefab: {fileID: 0}
   nameText: {fileID: 0}
   costText: {fileID: 114422916723308228}
   useText: {fileID: 114226557524641198}
   timerText: {fileID: 114275979459697152}
-  gameplayRoot: {fileID: 0}
   button: {fileID: 0}
 --- !u!114 &114808605806832918
 MonoBehaviour:

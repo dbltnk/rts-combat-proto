@@ -6,12 +6,12 @@ public class Champion : MonoBehaviour {
 
     public float speed = 1f;
     public Vector3 TargetPos;
-    public Gameplay gp;
     public GameObject Circle;
 
-    // Use this for initialization
+	public bool ShowCircle;
+
+	// Use this for initialization
     void Start () {
-        gp = (Gameplay)FindObjectOfType(typeof(Gameplay));
         TargetPos = transform.position;
         Circle = this.gameObject.transform.GetChild(1).gameObject;
     }
@@ -20,18 +20,12 @@ public class Champion : MonoBehaviour {
 	void Update ()
     {
 		UpdateMove();
-        DoCircle();
+        UpdateCircle();
     }
 
-	private void DoCircle()
+	private void UpdateCircle()
 	{
-	    if (gp.UnitSelected == 0)
-	        {
-	            Circle.gameObject.SetActive(false);
-	        }
-	    else {
-	            Circle.gameObject.SetActive(true);
-	        }
+		Circle.gameObject.SetActive(ShowCircle);
 	}
 
 	public void SetMoveTarget(Vector3 pos)	{

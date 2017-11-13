@@ -25,18 +25,22 @@ public class GameplayCards : MonoBehaviour {
     public float crystalsPerMinuteBase;
     public float crystalsPerMinute;
 
-    public List<GameObject> Cards;
+	public List<Card.Config> CardConfigs;
     public GameObject Deck;
 
-    public float randomKillDelay;
-    public float chanceToDie;
+	public GameObject PrefUICard;
 
-    public GameObject PrefUICard;
+	public Prefabs Prefabs;
 
     // Use this for initialization
     void Start () {
         crystalsPerMinuteBase = 1 / timePerCrystal * 60;
-        InvokeRepeating("PickAndKillUnit", randomKillDelay, randomKillDelay);
+		SetupCardConfigs();
+    }
+
+	void SetupCardConfigs ()
+	{
+		CardConfigs = new List<Card.Config>();
 
 		CreateCard(new Card.Config() {
 			Name = "Spinner", // name
@@ -51,7 +55,8 @@ public class GameplayCards : MonoBehaviour {
 			HealthMax = 160f, // health
 			AttackSpeed = 2f, // attackSpeed
 			Damage = 10f, // damage
-			MaxTargets = 4f // maxTargets				
+			MaxTargets = 4f, // maxTargets			
+			UnitPrefab = Prefabs.GetByName("Unit-3"),
 		});
 		CreateCard(new Card.Config(){
 			Name = "Swarmers", // name
@@ -66,7 +71,8 @@ public class GameplayCards : MonoBehaviour {
 			HealthMax = 40f, // health
 			AttackSpeed = 1f, // attackSpeed
 			Damage = 5f, // damage
-			MaxTargets = 1f // maxTargets
+			MaxTargets = 1f, // maxTargets
+			UnitPrefab = Prefabs.GetByName("Unit-2"),
 		});
 		CreateCard(new Card.Config(){
 			Name = "Cleaver",
@@ -81,13 +87,15 @@ public class GameplayCards : MonoBehaviour {
 			AttackSpeed = 4f,
 			Damage = 160f,
 			MaxTargets = 1f,
+			UnitPrefab = Prefabs.GetByName("Unit-1"),
 		});
-    }
+	}
 
 	void CreateCard(Card.Config conf){
 		GameObject obj = Instantiate(PrefUICard);
 		Card card = obj.GetComponent<Card>();
 		card.Setup(this, conf);
+		CardConfigs.Add(conf);
 	}
 
     // Update is called once per frame
@@ -112,20 +120,6 @@ public class GameplayCards : MonoBehaviour {
         if (crystalsRaw >= cost)
         {
             crystalsRaw -= cost;
-        }
-    }
-
-    public void PickAndKillUnit()
-    {
-        if (Random.Range(0f, 1f) <= chanceToDie)
-        {
-			int cardPosition = Random.Range(0, Cards.Count);
-			Card card = Cards[cardPosition].GetComponent<Card>();
-            if (card.UseCurrent > 0)
-            {
-                card.UseCurrent -= 1;
-                supply -= card.Conf.Price;
-            }
         }
     }
 }

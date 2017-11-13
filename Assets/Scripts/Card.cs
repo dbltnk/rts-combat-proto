@@ -20,6 +20,8 @@ public class Card : MonoBehaviour {
 		public float AttackSpeed;
 		public float Damage;
 		public float MaxTargets;
+
+		public GameObject UnitPrefab;
 	}
 
 	public int UseCurrent;

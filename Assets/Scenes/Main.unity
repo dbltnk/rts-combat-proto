@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1985802520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73fc663afc227284ab95fe50cbf197a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 583ae621e499a4fcdb9ab90c91a96824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UnitSelected: 0
@@ -1445,21 +1445,10 @@ MonoBehaviour:
   regenerationModifier: 0
   crystalsPerMinuteBase: 0
   crystalsPerMinute: 0
-  Cards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  CardConfigs: []
   Deck: {fileID: 1598749422}
-  randomKillDelay: 1
-  chanceToDie: 0
   PrefUICard: {fileID: 1654495877772726, guid: 8223b07ca22ea344bab56fabdb7d6b80, type: 2}
+  Prefabs: {fileID: 114472834148059550, guid: ef0c2279afc0d4dd2b6cd0623f588eef, type: 2}
 --- !u!114 &1985802524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,5 +1460,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52ef399f745043ea8aa41b645f93f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControlledChampion: {fileID: 0}
   ControlledGameplay: {fileID: 0}
