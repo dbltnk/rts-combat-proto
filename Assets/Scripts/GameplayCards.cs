@@ -46,6 +46,7 @@ public class GameplayCards : MonoBehaviour {
             Color.red, // color
             4, // price
             3, // useMax
+            1, // amount
             30f, // timeoutMax
             3f, // size
             1f, // runspeed
@@ -54,6 +55,42 @@ public class GameplayCards : MonoBehaviour {
             4f, // attackSpeed
             160f, // damage
             1f // maxTargets
+            );
+
+        GameObject ObjectSwarmers = Instantiate(PrefUICard);
+        Card CardCSwarmers = ObjectSwarmers.GetComponent<Card>();
+        CardCSwarmers.Setup(
+            "Swarmers", // name
+            Color.blue, // color
+            2, // price
+            3, // useMax
+            4, // amount
+            30f, // timeoutMax
+            1f, // size
+            1f, // runspeed
+            1f, // range
+            40f, // health
+            1f, // attackSpeed
+            5f, // damage
+            1f // maxTargets
+            );
+
+        GameObject ObjectSpinner = Instantiate(PrefUICard);
+        Card CardSpinner = ObjectSpinner.GetComponent<Card>();
+        CardSpinner.Setup(
+            "Spinner", // name
+            Color.green, // color
+            2, // price
+            3, // useMax
+            1, // amount
+            30f, // timeoutMax
+            2f, // size
+            1f, // runspeed
+            1f, // range
+            160f, // health
+            2f, // attackSpeed
+            20f, // damage
+            4f // maxTargets
             );
     }
 

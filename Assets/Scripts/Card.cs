@@ -9,6 +9,7 @@ public class Card : MonoBehaviour {
     public int Price;
     public int UseMax;
     public int UseCurrent;
+    public int Amount;
     public float TimeoutMax;
     public float TimeoutCurrent;
     public float Size;
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour {
     public float Damage;
     public float MaxTargets;
 
+    public UnityEngine.UI.Text nameText;
     public UnityEngine.UI.Text costText;
     public UnityEngine.UI.Text useText;
     public UnityEngine.UI.Text timerText;
@@ -28,13 +30,13 @@ public class Card : MonoBehaviour {
     GameplayCards gp;
     public UnityEngine.UI.Button button;
 
-    public void Setup (string name, Color color, int price, int useMax, float timeoutMax, float size, float runSpeed, float range, float health, float attackSpeed, float damage, float maxTargets)
+    public void Setup(string name, Color color, int price, int useMax, int amount, float timeoutMax, float size, float runSpeed, float range, float health, float attackSpeed, float damage, float maxTargets)
     {
          Name = name;
          Color = color;
          Price = price;
          UseMax = useMax;
-         UseCurrent = 0;
+         Amount = amount;
          TimeoutMax = timeoutMax;
          TimeoutCurrent = 0f;
          Size = size;
@@ -47,10 +49,8 @@ public class Card : MonoBehaviour {
          MaxTargets = maxTargets;
 }
     
-    // Use this for initialization
     void Start () {
-        //PrefUICard = Resources.Load("/Prefabs/Card") as GameObject;
-        //UICard = Instantiate(PrefUICard);
+        nameText = transform.Find("Name").GetComponent<UnityEngine.UI.Text>();
         costText = transform.Find("Cost").GetComponent<UnityEngine.UI.Text>();
         useText = transform.Find("Uses").GetComponent<UnityEngine.UI.Text>();
         timerText = transform.Find("Timer").GetComponent<UnityEngine.UI.Text>();
@@ -61,8 +61,8 @@ public class Card : MonoBehaviour {
         button = GetComponent<UnityEngine.UI.Button>(); 
     }
 	
-	// Update is called once per frame
 	void Update () {
+        nameText.text = Name;
         costText.text = string.Concat("[", Price, "]");
         useText.text = string.Concat(UseCurrent, "/", UseMax);
         timerText.text = string.Concat(Mathf.Floor(TimeoutCurrent).ToString(), "s");
