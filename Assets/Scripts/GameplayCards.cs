@@ -39,22 +39,23 @@ public class GameplayCards : MonoBehaviour {
         InvokeRepeating("PickAndKillUnit", randomKillDelay, randomKillDelay);
 
         // create cards
-        GameObject ObjectCleaver = Instantiate(PrefUICard);
-        Card CardCleaver = ObjectCleaver.GetComponent<Card>();
-        CardCleaver.Setup(
-            "Cleaver", // name
-            Color.red, // color
-            4, // price
-            3, // useMax
+
+        GameObject ObjectSpinner = Instantiate(PrefUICard);
+        Card CardSpinner = ObjectSpinner.GetComponent<Card>();
+        CardSpinner.Setup(
+            "Spinner", // name
+            Color.green, // color
+            2, // price
+            5, // useMax
             1, // amount
-            30f, // timeoutMax
-            3f, // size
+            7f, // timeoutMax
+            2f, // size
             1f, // runspeed
             1f, // range
-            100f, // health
-            4f, // attackSpeed
-            160f, // damage
-            1f // maxTargets
+            160f, // health
+            2f, // attackSpeed
+            10f, // damage
+            4f // maxTargets
             );
 
         GameObject ObjectSwarmers = Instantiate(PrefUICard);
@@ -62,10 +63,10 @@ public class GameplayCards : MonoBehaviour {
         CardCSwarmers.Setup(
             "Swarmers", // name
             Color.blue, // color
-            2, // price
+            3, // price
             3, // useMax
             4, // amount
-            30f, // timeoutMax
+            12f, // timeoutMax
             1f, // size
             1f, // runspeed
             1f, // range
@@ -75,22 +76,23 @@ public class GameplayCards : MonoBehaviour {
             1f // maxTargets
             );
 
-        GameObject ObjectSpinner = Instantiate(PrefUICard);
-        Card CardSpinner = ObjectSpinner.GetComponent<Card>();
-        CardSpinner.Setup(
-            "Spinner", // name
-            Color.green, // color
-            2, // price
-            3, // useMax
+
+        GameObject ObjectCleaver = Instantiate(PrefUICard);
+        Card CardCleaver = ObjectCleaver.GetComponent<Card>();
+        CardCleaver.Setup(
+            "Cleaver", // name
+            Color.red, // color
+            4, // price
+            2, // useMax
             1, // amount
-            30f, // timeoutMax
-            2f, // size
+            15f, // timeoutMax
+            3f, // size
             1f, // runspeed
             1f, // range
-            160f, // health
-            2f, // attackSpeed
-            20f, // damage
-            4f // maxTargets
+            100f, // health
+            4f, // attackSpeed
+            160f, // damage
+            1f // maxTargets
             );
     }
 
