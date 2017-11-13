@@ -13,7 +13,7 @@ public class Gameplay : MonoBehaviour {
     public GameObject U3pref;
     public GameObject ChampionPreviewObject;
     public GameObject UnitPreviewCapsule;
-    public GameObject Champion;
+	public Champion Champion;
 
     // Use this for initialization
     void Start () {
@@ -53,7 +53,8 @@ public class Gameplay : MonoBehaviour {
 		if (!ChampionWasSpawned)
 		{
 			GameObject.Destroy(ChampionPreviewObject);
-			Champion = Instantiate(ChampionPrefab, pos, Quaternion.identity);
+			var go = Instantiate(ChampionPrefab, pos, Quaternion.identity);
+			Champion = go.GetComponent<Champion>();
 			ChampionWasSpawned = true;
 		}
 		else

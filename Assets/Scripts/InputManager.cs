@@ -13,12 +13,21 @@ public class InputManager : MonoBehaviour {
 
 	public Gameplay ControlledGameplay;
 
+
+	void FixedUpdate() {
+		if (ControlledGameplay == null) return;
+
+		if (ControlledGameplay.Champion != null && Input.GetMouseButton(1)) {
+			ControlledGameplay.Champion.SetMoveTarget(MousePosToWorldPos());
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (ControlledGameplay == null) return;
 
 		if (ControlledGameplay.Champion != null && Input.GetMouseButtonDown(1)) {
-			ControlledGameplay.Champion.GetComponent<Champion>().SetMoveTarget(MousePosToWorldPos());
+			ControlledGameplay.Champion.SetMoveTarget(MousePosToWorldPos());
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
