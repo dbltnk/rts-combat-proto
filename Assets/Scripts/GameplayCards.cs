@@ -42,56 +42,61 @@ public class GameplayCards : MonoBehaviour {
         GameObject ObjectCleaver = Instantiate(PrefUICard);
         Card CardCleaver = ObjectCleaver.GetComponent<Card>();
         CardCleaver.Setup(
-            "Cleaver", // name
-            Color.red, // color
-            4, // price
-            3, // useMax
-            1, // amount
-            30f, // timeoutMax
-            3f, // size
-            1f, // runspeed
-            1f, // range
-            100f, // health
-            4f, // attackSpeed
-            160f, // damage
-            1f // maxTargets
-            );
+			this,	// gameplay root
+			new Card.Config(){
+				Name = "Cleaver",
+				Color = Color.red,
+				Price = 4,
+				UseMax = 3,
+				Amount = 1,
+				TimeoutMax = 30f,
+				Size = 3f,
+				Range = 1f,
+				HealthMax = 100f,
+				AttackSpeed = 4f,
+				Damage = 160f,
+				MaxTargets = 1f,
+			});
 
         GameObject ObjectSwarmers = Instantiate(PrefUICard);
         Card CardCSwarmers = ObjectSwarmers.GetComponent<Card>();
         CardCSwarmers.Setup(
-            "Swarmers", // name
-            Color.blue, // color
-            2, // price
-            3, // useMax
-            4, // amount
-            30f, // timeoutMax
-            1f, // size
-            1f, // runspeed
-            1f, // range
-            40f, // health
-            1f, // attackSpeed
-            5f, // damage
-            1f // maxTargets
-            );
+			this,	// gameplay root
+			new Card.Config(){
+				Name = "Swarmers", // name
+				Color = Color.blue, // color
+				Price = 2, // price
+				UseMax = 3, // useMax
+				Amount = 4, // amount
+				TimeoutMax = 30f, // timeoutMax
+				Size = 1f, // size
+				RunSpeed = 1f, // runspeed
+				Range = 1f, // range
+				HealthMax = 40f, // health
+				AttackSpeed = 1f, // attackSpeed
+				Damage = 5f, // damage
+				MaxTargets = 1f // maxTargets
+			});
 
         GameObject ObjectSpinner = Instantiate(PrefUICard);
         Card CardSpinner = ObjectSpinner.GetComponent<Card>();
         CardSpinner.Setup(
-            "Spinner", // name
-            Color.green, // color
-            2, // price
-            3, // useMax
-            1, // amount
-            30f, // timeoutMax
-            2f, // size
-            1f, // runspeed
-            1f, // range
-            160f, // health
-            2f, // attackSpeed
-            20f, // damage
-            4f // maxTargets
-            );
+			this,	// gameplay root
+			new Card.Config() {
+				Name = "Spinner", // name
+				Color = Color.green, // color
+				Price = 2, // price
+				UseMax = 3, // useMax
+				Amount = 1, // amount
+				TimeoutMax = 30f, // timeoutMax
+				Size = 2f, // size
+				RunSpeed = 1f, // runspeed
+				Range = 1f, // range
+				HealthMax = 160f, // health
+				AttackSpeed = 2f, // attackSpeed
+				Damage = 20f, // damage
+				MaxTargets = 4f // maxTargets				
+			});
     }
 
     // Update is called once per frame
@@ -129,7 +134,7 @@ public class GameplayCards : MonoBehaviour {
             if (c.UseCurrent > 0)
             {
                 c.UseCurrent -= 1;
-                supply -= c.Price;
+                supply -= c.Conf.Price;
             }
         }
     }
