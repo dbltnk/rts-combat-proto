@@ -38,66 +38,57 @@ public class GameplayCards : MonoBehaviour {
         crystalsPerMinuteBase = 1 / timePerCrystal * 60;
         InvokeRepeating("PickAndKillUnit", randomKillDelay, randomKillDelay);
 
-        // create cards
-        GameObject ObjectCleaver = Instantiate(PrefUICard);
-        Card CardCleaver = ObjectCleaver.GetComponent<Card>();
-        CardCleaver.Setup(
-			this,	// gameplay root
-			new Card.Config(){
-				Name = "Cleaver",
-				Color = Color.red,
-				Price = 4,
-				UseMax = 3,
-				Amount = 1,
-				TimeoutMax = 30f,
-				Size = 3f,
-				Range = 1f,
-				HealthMax = 100f,
-				AttackSpeed = 4f,
-				Damage = 160f,
-				MaxTargets = 1f,
-			});
-
-        GameObject ObjectSwarmers = Instantiate(PrefUICard);
-        Card CardCSwarmers = ObjectSwarmers.GetComponent<Card>();
-        CardCSwarmers.Setup(
-			this,	// gameplay root
-			new Card.Config(){
-				Name = "Swarmers", // name
-				Color = Color.blue, // color
-				Price = 2, // price
-				UseMax = 3, // useMax
-				Amount = 4, // amount
-				TimeoutMax = 30f, // timeoutMax
-				Size = 1f, // size
-				RunSpeed = 1f, // runspeed
-				Range = 1f, // range
-				HealthMax = 40f, // health
-				AttackSpeed = 1f, // attackSpeed
-				Damage = 5f, // damage
-				MaxTargets = 1f // maxTargets
-			});
-
-        GameObject ObjectSpinner = Instantiate(PrefUICard);
-        Card CardSpinner = ObjectSpinner.GetComponent<Card>();
-        CardSpinner.Setup(
-			this,	// gameplay root
-			new Card.Config() {
-				Name = "Spinner", // name
-				Color = Color.green, // color
-				Price = 2, // price
-				UseMax = 3, // useMax
-				Amount = 1, // amount
-				TimeoutMax = 30f, // timeoutMax
-				Size = 2f, // size
-				RunSpeed = 1f, // runspeed
-				Range = 1f, // range
-				HealthMax = 160f, // health
-				AttackSpeed = 2f, // attackSpeed
-				Damage = 20f, // damage
-				MaxTargets = 4f // maxTargets				
-			});
+		CreateCard(new Card.Config() {
+			Name = "Spinner", // name
+			Color = Color.green, // color
+			Price = 2, // price
+			UseMax = 5, // useMax
+			Amount = 1, // amount
+			TimeoutMax = 7f, // timeoutMax
+			Size = 2f, // size
+			RunSpeed = 1f, // runspeed
+			Range = 1f, // range
+			HealthMax = 160f, // health
+			AttackSpeed = 2f, // attackSpeed
+			Damage = 10f, // damage
+			MaxTargets = 4f // maxTargets				
+		});
+		CreateCard(new Card.Config(){
+			Name = "Swarmers", // name
+			Color = Color.blue, // color
+			Price = 3, // price
+			UseMax = 3, // useMax
+			Amount = 4, // amount
+			TimeoutMax = 12f, // timeoutMax
+			Size = 1f, // size
+			RunSpeed = 1f, // runspeed
+			Range = 1f, // range
+			HealthMax = 40f, // health
+			AttackSpeed = 1f, // attackSpeed
+			Damage = 5f, // damage
+			MaxTargets = 1f // maxTargets
+		});
+		CreateCard(new Card.Config(){
+			Name = "Cleaver",
+			Color = Color.red,
+			Price = 4,
+			UseMax = 2,
+			Amount = 1,
+			TimeoutMax = 15f,
+			Size = 3f,
+			Range = 1f,
+			HealthMax = 100f,
+			AttackSpeed = 4f,
+			Damage = 160f,
+			MaxTargets = 1f,
+		});
     }
+
+	void CreateCard(Card.Config conf){
+		GameObject obj = Instantiate(PrefUICard);
+		Card card = obj.GetComponent<Card>();
+		card.Setup(this, conf);
+	}
 
     // Update is called once per frame
     void Update () {
