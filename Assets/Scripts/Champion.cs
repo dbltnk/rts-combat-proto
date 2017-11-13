@@ -34,7 +34,7 @@ public class Champion : MonoBehaviour {
     
 	private void UpdateMove()
 	{
-        float step = speed * Time.deltaTime;
+        float step = speed * Time.smoothDeltaTime;
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, step);
     }
 }
