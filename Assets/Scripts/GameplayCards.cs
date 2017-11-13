@@ -26,17 +26,39 @@ public class GameplayCards : MonoBehaviour {
     public float crystalsPerMinute;
 
     public List<GameObject> Cards;
+    public GameObject Deck;
+
     public float randomKillDelay;
     public float chanceToDie;
+
+    public GameObject PrefUICard;
 
     // Use this for initialization
     void Start () {
         crystalsPerMinuteBase = 1 / timePerCrystal * 60;
         InvokeRepeating("PickAndKillUnit", randomKillDelay, randomKillDelay);
+
+        // create cards
+        GameObject ObjectCleaver = Instantiate(PrefUICard);
+        Card CardCleaver = ObjectCleaver.GetComponent<Card>();
+        CardCleaver.Setup(
+            "Cleaver", // name
+            Color.red, // color
+            4, // price
+            3, // useMax
+            30f, // timeoutMax
+            3f, // size
+            1f, // runspeed
+            1f, // range
+            100f, // health
+            4f, // attackSpeed
+            160f, // damage
+            1f // maxTargets
+            );
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         
         crystalsCapRaw += Time.deltaTime / timePerCrystalCapIncrease * speedFactor;
         crystalsCap = Mathf.Min(Mathf.FloorToInt(crystalsCapRaw), crystalsCapMax);
@@ -67,10 +89,10 @@ public class GameplayCards : MonoBehaviour {
         {
             int cardPosition = Mathf.RoundToInt(Random.Range(0, 8));
             Card c = Cards[cardPosition].GetComponent<Card>();
-            if (c.useCurrent > 0)
+            if (c.UseCurrent > 0)
             {
-                c.useCurrent -= 1;
-                supply -= c.cost;
+                c.UseCurrent -= 1;
+                supply -= c.Price;
             }
         }
     }
