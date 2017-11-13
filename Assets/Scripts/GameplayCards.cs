@@ -91,14 +91,13 @@ public class GameplayCards : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void Update () {
-        
+    void FixedUpdate () {        
         crystalsCapRaw += Time.deltaTime / timePerCrystalCapIncrease * speedFactor;
         crystalsCap = Mathf.Min(Mathf.FloorToInt(crystalsCapRaw), crystalsCapMax);
-        crystalsCapText.text = "Crystal Cap: "+ crystalsCap.ToString();
+        crystalsCapText.text = "Crystal Cap: " + crystalsCap.ToString();
 
         regenerationModifier = 1f - ((float)supply / (float)supplySoftCap);
-        crystalsRaw += Time.deltaTime / timePerCrystal * speedFactor * regenerationModifier;
+		crystalsRaw += Time.deltaTime / timePerCrystal * speedFactor * regenerationModifier;
         crystalsRaw = Mathf.Min(crystalsRaw, crystalsCap) ;
         crystalsText.text = string.Format("Crystals: {0:0.00}", crystalsRaw);
 
@@ -120,12 +119,12 @@ public class GameplayCards : MonoBehaviour {
     {
         if (Random.Range(0f, 1f) <= chanceToDie)
         {
-            int cardPosition = Mathf.RoundToInt(Random.Range(0, 8));
-            Card c = Cards[cardPosition].GetComponent<Card>();
-            if (c.UseCurrent > 0)
+			int cardPosition = Random.Range(0, Cards.Count);
+			Card card = Cards[cardPosition].GetComponent<Card>();
+            if (card.UseCurrent > 0)
             {
-                c.UseCurrent -= 1;
-                supply -= c.Conf.Price;
+                card.UseCurrent -= 1;
+                supply -= card.Conf.Price;
             }
         }
     }

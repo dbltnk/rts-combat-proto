@@ -22,7 +22,7 @@ public class Gameplay : MonoBehaviour {
 
     void SpawnUnit(int unitID)
     {
-        Vector3 worldPos = MousePosToWorldPos();
+        Vector3 worldPos = InputManager.MousePosToWorldPos();
 
         if(Vector3.Distance(worldPos, Champion.transform.position) <= SpawnDistance)
         {
@@ -49,21 +49,21 @@ public class Gameplay : MonoBehaviour {
         }       
     }
 
+	public void SpawnUnit(Vector3 pos) {
+		if (!ChampionWasSpawned)
+		{
+			GameObject.Destroy(ChampionPreviewObject);
+			Champion = Instantiate(ChampionPrefab, pos, Quaternion.identity);
+			ChampionWasSpawned = true;
+		}
+		else
+		{
+			SpawnUnit(UnitSelected);
+		}
+	}
+
     // Update is called once per frame
     void Update () {
-        if (Input.GetMouseButtonDown(0)) {
-
-            if (!ChampionWasSpawned)
-            {
-                GameObject.DestroyImmediate(ChampionPreviewObject);
-                Champion = Instantiate(ChampionPrefab, MousePosToWorldPos(), Quaternion.identity);
-                ChampionWasSpawned = true;
-            }
-            else
-            {
-                SpawnUnit(UnitSelected);
-            }
-        }
 
         if (ChampionWasSpawned)
         {
@@ -107,7 +107,7 @@ public class Gameplay : MonoBehaviour {
                 }
             }
 
-            if (Vector3.Distance(MousePosToWorldPos(), Champion.transform.position) <= SpawnDistance)
+			if (Vector3.Distance(InputManager.MousePosToWorldPos(), Champion.transform.position) <= SpawnDistance)
             {
                 switch (UnitSelected)
                 {
@@ -131,21 +131,4 @@ public class Gameplay : MonoBehaviour {
         }
     }
 
-    public Vector3 MousePosToWorldPos()
-    {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-        Vector3 worldPos;
-        LayerMask mask = 1 << 8;
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000f, mask))
-        {
-            worldPos = hit.point;
-        }
-        else
-        {
-            worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        }
-        return worldPos;
-    }
 }

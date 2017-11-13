@@ -19,28 +19,27 @@ public class Champion : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Move();
+		UpdateMove();
         DoCircle();
     }
 
-private void DoCircle()
-{
-    if (gp.UnitSelected == 0)
-        {
-            Circle.gameObject.SetActive(false);
-        }
-    else {
-            Circle.gameObject.SetActive(true);
-        }
-}
-    
-private void Move()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            TargetPos = gp.MousePosToWorldPos();
-        }
+	private void DoCircle()
+	{
+	    if (gp.UnitSelected == 0)
+	        {
+	            Circle.gameObject.SetActive(false);
+	        }
+	    else {
+	            Circle.gameObject.SetActive(true);
+	        }
+	}
 
+	public void SetMoveTarget(Vector3 pos)	{
+		TargetPos = pos;	
+	}
+    
+	private void UpdateMove()
+	{
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, step);
     }
