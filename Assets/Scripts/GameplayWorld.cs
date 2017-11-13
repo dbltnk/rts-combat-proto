@@ -11,9 +11,7 @@ public class GameplayWorld : MonoBehaviour {
     public float SpawnDistance = 15f;
     public bool ChampionWasSpawned = false;
     public GameObject ChampionPrefab;
-    public GameObject U1pref;
-    public GameObject U2pref;
-    public GameObject U3pref;
+
     public GameObject ChampionPreviewObject;
     public GameObject UnitPreviewCapsule;
 	public Champion Champion;

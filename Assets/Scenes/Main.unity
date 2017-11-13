@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1922784538560924, guid: 905907e48c09c6c42a47f55d91b63f87, type: 2}
       propertyPath: m_Name
-      value: Target (2)
+      value: Target
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 905907e48c09c6c42a47f55d91b63f87, type: 2}
@@ -871,7 +871,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1922784538560924, guid: 905907e48c09c6c42a47f55d91b63f87, type: 2}
       propertyPath: m_Name
-      value: Target (1)
+      value: Target
       objectReference: {fileID: 0}
     - target: {fileID: 1922784538560924, guid: 905907e48c09c6c42a47f55d91b63f87, type: 2}
       propertyPath: m_TagString
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583ae621e499a4fcdb9ab90c91a96824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitSelected: 0
+  UnitSelected: -1
   SpawnDistance: 15
   ChampionWasSpawned: 0
   ChampionPrefab: {fileID: 1143593863281830, guid: f9c4d3013717d4947ba28fa539645fd2,
